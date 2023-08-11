@@ -5,52 +5,43 @@
 using namespace std;
 
 class Shape{
-	private:
+	protected:
 		string name;
 	public:
 		Shape():name(""){};
 		Shape(string s){
 			name=s;
 		}
+		string get_name(void){
+			return name;
+		}
+		void set_name(string s){
+			name=s;
+		}
 };
 class Rock:public Shape{
-	private:
-		string ss;
 	public:
 		Rock():Shape(){};
 		Rock(string s):Shape(s){};
 		string get_name(){
-			return ss;
-		}
-		void set_name(string s){
-			ss=s;
+			return Shape::get_name();
 		}
 };
 class Paper:public Shape{
-	private:
-		string sp;
 	public:
 		Paper():Shape(){};
-		Paper(string s):sp(s),Shape(s){};
+		Paper(string s):Shape(s){};
 		string get_name(void){
-			return sp;
-		}
-		void set_name(string s){
-			sp=s;
+			return Shape::get_name();
 		}
 		
 };
 class Scissors:public Shape{
-	private:
-		string scs;
 	public:
 		Scissors():Shape(){}
-		Scissors(string s):scs(s),Shape(s){};
+		Scissors(string s):Shape(s){};
 		string get_name(void){
-			return scs;
-		}
-		void set_name(string s){
-			scs=s;
+			return Shape::get_name();
 		}
 
 
@@ -61,9 +52,9 @@ class Player{
 	public:
 		Player(string s){
 			name=s;
-		r.set_name(s+" rock");
-		p.set_name(s+" papper");
-		sc.set_name(s+" scissors");
+			r.set_name(s+"_rock");
+			p.set_name(s+"_paper");
+			sc.set_name(s+"_scissor");
 		}
 		Rock r;
 		Paper p;
